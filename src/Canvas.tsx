@@ -48,11 +48,11 @@ const Squares = () => {
       { id: group3.sentence, size: 'smallSize'},
       { id: group4.sentence, size: 'smallSize'},
       { id: group5.sentence, size: 'smallSize'},
-      { id: group1.sentence, size: 'Empty'},
-      { id: group2.sentence, size: 'Empty'},
-      { id: group3.sentence, size: 'Empty'},
-      { id: group4.sentence, size: 'Empty'},
-      { id: group5.sentence, size: 'Empty'},
+      { id: group1.sentence, size: 'empty'},
+      { id: group2.sentence, size: 'empty'},
+      { id: group3.sentence, size: 'empty'},
+      { id: group4.sentence, size: 'empty'},
+      { id: group5.sentence, size: 'empty'},
       { id: group1.sentence, size: 'smallSize'},
       { id: group2.sentence, size: 'smallSize'},
       { id: group3.sentence, size: 'smallSize'},
@@ -95,7 +95,7 @@ const Squares = () => {
       } else {
         clearInterval(interval);
       }
-    }, 100);
+    }, 10);
 
     return () => clearInterval(interval);
   }, []);
