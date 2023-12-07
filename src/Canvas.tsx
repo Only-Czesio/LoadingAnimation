@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Grid from './Grid';
+import Grid from "./Grid";
 
 const Squares = () => {
   const [squareSizes, setSquareSizes] = useState<{
@@ -17,57 +17,57 @@ const Squares = () => {
   });
   const group1 = {
     id: 1,
-    sentence: ['square7']
-  }
-    const group2 = {
+    sentence: ["square7"],
+  };
+  const group2 = {
     id: 2,
-    sentence: ['square8','square4']
-  }
-    const group3 = {
+    sentence: ["square8", "square4"],
+  };
+  const group3 = {
     id: 3,
-    sentence: ['square1','square5','square9']
-  }
-    const group4 = {
+    sentence: ["square1", "square5", "square9"],
+  };
+  const group4 = {
     id: 4,
-    sentence: ['square2','square6']
-  }
-    const group5 = {
+    sentence: ["square2", "square6"],
+  };
+  const group5 = {
     id: 5,
-    sentence: ['square3']
-  }
+    sentence: ["square3"],
+  };
 
-  useEffect(()=> {
+  useEffect(() => {
     const sequence = [
-      { id: group1.sentence, size: 'midSize'},
-      { id: group2.sentence, size: 'midSize'},
-      { id: group3.sentence, size: 'midSize'},
-      { id: group4.sentence, size: 'midSize'},
-      { id: group5.sentence, size: 'midSize'},
-      { id: group1.sentence, size: 'smallSize'},
-      { id: group2.sentence, size: 'smallSize'},
-      { id: group3.sentence, size: 'smallSize'},
-      { id: group4.sentence, size: 'smallSize'},
-      { id: group5.sentence, size: 'smallSize'},
-      { id: group1.sentence, size: 'empty'},
-      { id: group2.sentence, size: 'empty'},
-      { id: group3.sentence, size: 'empty'},
-      { id: group4.sentence, size: 'empty'},
-      { id: group5.sentence, size: 'empty'},
-      { id: group1.sentence, size: 'smallSize'},
-      { id: group2.sentence, size: 'smallSize'},
-      { id: group3.sentence, size: 'smallSize'},
-      { id: group4.sentence, size: 'smallSize'},
-      { id: group5.sentence, size: 'smallSize'},
-      { id: group1.sentence, size: 'midSize'},
-      { id: group2.sentence, size: 'midSize'},
-      { id: group3.sentence, size: 'midSize'},
-      { id: group4.sentence, size: 'midSize'},
-      { id: group5.sentence, size: 'midSize'},
-      { id: group1.sentence, size: 'fullSize'},
-      { id: group2.sentence, size: 'fullSize'},
-      { id: group3.sentence, size: 'fullSize'},
-      { id: group4.sentence, size: 'fullSize'},
-      { id: group5.sentence, size: 'fullSize'},
+      { id: group1.sentence, size: "midSize" },
+      { id: group2.sentence, size: "midSize" },
+      { id: group3.sentence, size: "midSize" },
+      { id: group4.sentence, size: "midSize" },
+      { id: group5.sentence, size: "midSize" },
+      { id: group1.sentence, size: "smallSize" },
+      { id: group2.sentence, size: "smallSize" },
+      { id: group3.sentence, size: "smallSize" },
+      { id: group4.sentence, size: "smallSize" },
+      { id: group5.sentence, size: "smallSize" },
+      { id: group1.sentence, size: "empty" },
+      { id: group2.sentence, size: "empty" },
+      { id: group3.sentence, size: "empty" },
+      { id: group4.sentence, size: "empty" },
+      { id: group5.sentence, size: "empty" },
+      { id: group1.sentence, size: "smallSize" },
+      { id: group2.sentence, size: "smallSize" },
+      { id: group3.sentence, size: "smallSize" },
+      { id: group4.sentence, size: "smallSize" },
+      { id: group5.sentence, size: "smallSize" },
+      { id: group1.sentence, size: "midSize" },
+      { id: group2.sentence, size: "midSize" },
+      { id: group3.sentence, size: "midSize" },
+      { id: group4.sentence, size: "midSize" },
+      { id: group5.sentence, size: "midSize" },
+      { id: group1.sentence, size: "fullSize" },
+      { id: group2.sentence, size: "fullSize" },
+      { id: group3.sentence, size: "fullSize" },
+      { id: group4.sentence, size: "fullSize" },
+      { id: group5.sentence, size: "fullSize" },
     ];
 
     let step = 0;
@@ -77,7 +77,6 @@ const Squares = () => {
         const { id, size } = sequence[step];
         setSquareSizes((prevSizes) => {
           const updatedSizes = { ...prevSizes };
-        
           // Check if the square is part of a group
           if (Array.isArray(id)) {
             // If yes, update the size for all squares in the group
@@ -88,7 +87,6 @@ const Squares = () => {
             // If not, update the size for the individual square
             updatedSizes[id] = size;
           }
-        
           return updatedSizes;
         });
         step = (step + 1) % sequence.length;
@@ -99,8 +97,6 @@ const Squares = () => {
 
     return () => clearInterval(interval);
   }, []);
-  return (
-    <Grid squareSizes={squareSizes}></Grid>
-  )
+  return <Grid squareSizes={squareSizes}></Grid>;
 };
 export default Squares;
